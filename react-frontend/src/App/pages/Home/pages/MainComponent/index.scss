@@ -1,0 +1,82 @@
+.MainComponent {
+  position: relative;
+  &-box {
+    position: relative;
+    &:before {
+      content: "";
+      display: block;
+      padding-top: 50%;
+    }
+  }
+  &-box {
+    z-index: 1;
+  }
+  &-detail-title {
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    position: relative;
+    h1 {
+      margin: 0;
+      font-size: 4vw;
+      font-weight: 500;
+      color:#4d328e;
+    }
+  }
+  &-more {
+    position: absolute;
+    right: 5%;
+    top: 3vw;
+    h6 {
+      margin: 0px;
+      font-size: 2vw;
+      a {
+        color: blue;
+        text-decoration: none;
+      }
+    }
+  }
+  &-detail-container {
+    background-color: white;
+  }
+  &-introduce {
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+  }
+  &-content {
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &-content-text {
+    color: white;
+    display: inline-block;
+    position: absolute;
+    left:5vw;
+    top: 50%;
+    h1 {
+      margin: 0px;
+      font-size: 4.5vw;
+      font-weight: 500;
+    }
+  }
+  &-content-festival{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &-detail-container {
+    background-color: white;
+    width:90%;
+    height: 90%;
+  }
+}

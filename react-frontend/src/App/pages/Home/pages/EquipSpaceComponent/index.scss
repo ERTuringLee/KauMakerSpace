@@ -1,0 +1,100 @@
+$title-color:rgb(0,144,192); 
+$content-width: 80%;
+.EquipSpaceComponent {
+  text-align: left;
+    &-content {
+      background-color: white;
+    }
+    &-human {
+      border-top: #ccc solid 1px;
+      padding-top: 2vh;
+      padding-bottom: 2vh;
+    }
+    &-use {
+      border-top: #ccc solid 1px;
+      padding-top: 2vh;
+      padding-bottom: 2vh;
+    }
+    &-title-text {
+      width: 40%;
+      margin-left: 2.5%;
+      display: inline-block;
+      color: rgb(85, 28, 147);
+      font-size: 5vh;
+      padding-top: 2vh;
+      padding-bottom: 2vh;
+    }
+    &-detail {
+      margin-top: 2vh;
+      margin-bottom: 2vh;
+      textarea {
+        width: 80%;
+        height: 10vh;
+        resize: none;
+        &:focus{
+          outline: none;
+        }
+      }
+    }
+    &-title-category {
+      width: 40%;
+      margin-left: 7.5%;
+      text-align:right;
+      display: inline-block;
+      font-size: 2vh;
+      a {
+        text-decoration: none;
+        color: blue;
+      }
+    }
+    &-human-title {
+      color: $title-color;
+      width: 95%;
+      margin: 0 auto;
+    }
+    &-use-title {
+      color: $title-color;
+      width: 95%;
+      margin: 0 auto;
+    }
+    &-human-content {
+      width: $content-width;
+      margin: 0 auto;
+    }
+    &-use-content {
+      width: $content-width;
+      margin:0 auto;
+    }
+    &-agree {
+      background-color: rgb(233,233,233);
+      padding-top: 2vh;
+      padding-bottom: 2vh;
+    }
+    &-agree-title {
+      width: $content-width;
+      margin: 2vh auto;
+    }
+    &-content-detail {
+      width: $content-width;
+      margin: 2vh auto;
+    }
+    &-content-submit {
+      text-align: center;
+    }
+    &-submit-button {
+      width: 20vh;
+      height: 7vh;
+      font-size: 2.5vh;
+      cursor: pointer;
+      border: none;
+      border-radius: 1vh;
+      color: white;
+      background-color: rgb(77, 50, 142);
+      &:hover {
+        background-color:rgb(43, 28, 82);
+      }
+    }
+    &-pictogram {
+      width: 3vh;
+    }
+}

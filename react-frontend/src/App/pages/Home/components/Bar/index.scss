@@ -1,0 +1,50 @@
+.Bar {
+  background-color: rgb(77, 50, 142);
+  height: 8vh;
+  padding-left: 1.5vw;
+  padding-right: 1.5vw;
+  ul {
+    list-style:none;
+  }
+  button {
+    text-decoration: none;
+    border: none;
+    color: white;
+    font-size: 2.5vmin;
+    width: 22vw;
+    height: 8vh;
+    cursor: pointer;
+    &:hover {
+      background-color: rgb(43, 28, 82);
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+  &-button-focus {
+    background-color: rgb(43, 28, 82);
+  }
+  &-button-not-focus {
+    background-color: rgb(77, 50, 142)
+  }
+  &-nav-menu-item {
+    display: inline-block;
+    width: 22%;
+  }
+  &-detail-menu {
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    z-index: 1000;
+  } 
+  &-detail-menu-item {
+    width: 22vw;
+    display: inline-block;
+  }
+  &-button-focus-detail {
+    background-color: rgb(43, 28, 82);
+  }
+  &-button-not-focus-detail {
+    background-color: rgb(77, 50, 142);
+  }
+}

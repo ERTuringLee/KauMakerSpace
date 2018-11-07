@@ -1,0 +1,33 @@
+import React, { Component } from "react";
+import { Link } from "react-router-dom"
+
+import classnames from "classnames/bind";
+
+import css from "./index.scss";
+
+const cx = classnames.bind(css);
+const moduleName = "GoodsComponent";
+
+class GoodsComponent extends Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+
+  render() {
+    return (
+      <div className={cx(`${moduleName}`)}>
+        <div className={cx(`${moduleName}-title`)}>
+          <div className={cx(`${moduleName}-title-text`)}>
+            작품 구경
+          </div>
+          <div className={cx(`${moduleName}-title-category`)}>
+          <Link to="/">HOME</Link> > <Link to="/goods">작품 구경</Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default GoodsComponent;

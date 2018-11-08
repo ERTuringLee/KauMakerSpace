@@ -20,7 +20,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.listen(6508, function () {
   console.log("Server running on 6508");
 })

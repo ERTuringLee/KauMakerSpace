@@ -51,7 +51,8 @@ class GoodsComponent extends Component {
           </div>
         </div>
         <div className={cx(`${moduleName}-content`)}>
-          {this.state.data.map((post) => 
+          {this.state.data.map((post) =>
+          <Link to={`/goods/{post.id}`}>
           <div className={cx(`${moduleName}-content-card`)}>
             <div className={cx(`${moduleName}-image`)}>
               <img src={post.url} alt="image"/>
@@ -63,7 +64,7 @@ class GoodsComponent extends Component {
             <div className={cx(`${moduleName}-image-date`)}>
               <h6>작성일: {post.date}</h6>
             </div>
-          </div>)}
+          </div>)</Link>}
         </div>
       </div>
     );

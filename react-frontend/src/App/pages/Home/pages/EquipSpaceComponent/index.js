@@ -14,7 +14,9 @@ class EquipSpaceComponent extends Component {
     super();
     this.state = {};
   }
-
+  componentDidMount () {
+    document.documentElement.scrollTop = 0;
+  }
   render() {
     return (
       <div className={cx(`${moduleName}`)}>

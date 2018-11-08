@@ -31,7 +31,9 @@ class InformationComponent extends Component {
             ]
         };
       }
-  
+    componentDidMount () {
+    document.documentElement.scrollTop = 0;
+    }
     render() {
       return (
         <div className={cx(`${moduleName}`)}>
@@ -62,7 +64,7 @@ class InformationComponent extends Component {
                         {this.state.data.map((post) => 
                             <tr>
                                 <td>{post.no}</td>
-                                <td>{post.title}</td>
+                                <td><Link to={`/communication/information/${post.no}`}>{post.title}</Link></td>
                                 <td>{post.file}</td>
                                 <td>{post.date}</td>
                                 <td>{post.writer}</td>

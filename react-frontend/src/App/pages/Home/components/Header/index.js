@@ -20,10 +20,16 @@ class Header extends Component {
                 </div>
                 <div className={cx(`${moduleName}-login-register`)}>
                   <Link to="/login">
-                    <img src={loginIcon} alt="logIn"/>
+                    <div className={cx(`${moduleName}-login`)}>
+                      <img src={loginIcon} alt="logIn"/>
+                      <span>로그인</span>
+                    </div>
                   </Link>
                   <Link to="/register">
-                    <img src={registerIcon } alt="register"/>
+                    <div className={cx(`${moduleName}-register`)}>
+                      <img src={registerIcon } alt="register"/>
+                      <span>회원가입</span>
+                    </div>
                   </Link>
                 </div>
             </div>

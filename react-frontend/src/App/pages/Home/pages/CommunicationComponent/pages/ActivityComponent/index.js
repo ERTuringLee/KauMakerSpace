@@ -28,6 +28,9 @@ class ActivityComponent extends Component {
       ]
     };
   }
+  componentDidMount () {
+    document.documentElement.scrollTop = 0;
+  }
   render() {
     return (
       <div className={cx(`${moduleName}`)}>
@@ -45,7 +48,7 @@ class ActivityComponent extends Component {
           </div>
         </div>
         <div className={cx(`${moduleName}-content`)}>
-          {this.state.data.map((post) => 
+          {this.state.data.map((post) =><Link to={`/communication/activity/${post.id}`}> 
           <div className={cx(`${moduleName}-content-card`)}>
             <div className={cx(`${moduleName}-image`)}>
               <img src={post.url} alt="image"/>
@@ -56,7 +59,7 @@ class ActivityComponent extends Component {
             <div className={cx(`${moduleName}-image-date`)}>
               <h6>작성일: {post.date}</h6>
             </div>
-          </div>)}
+          </div></Link>)}
         </div>
       </div>
 )

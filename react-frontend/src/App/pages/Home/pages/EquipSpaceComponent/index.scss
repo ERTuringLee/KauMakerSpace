@@ -20,16 +20,16 @@ $content-width: 80%;
       margin-left: 2.5%;
       display: inline-block;
       color: rgb(85, 28, 147);
-      font-size: 5vh;
-      padding-top: 2vh;
-      padding-bottom: 2vh;
+      font-size: 4.5vw;
+      padding-top: 2vw;
+      padding-bottom: 2vw;
     }
     &-detail {
-      margin-top: 2vh;
-      margin-bottom: 2vh;
+      margin-top: 2vw;
+      margin-bottom: 2vw;
       textarea {
         width: 80%;
-        height: 10vh;
+        height: 10vw;
         resize: none;
         &:focus{
           outline: none;
@@ -41,7 +41,7 @@ $content-width: 80%;
       margin-left: 7.5%;
       text-align:right;
       display: inline-block;
-      font-size: 2vh;
+      font-size: 1.75vw;
       a {
         text-decoration: none;
         color: blue;
@@ -67,24 +67,24 @@ $content-width: 80%;
     }
     &-agree {
       background-color: rgb(233,233,233);
-      padding-top: 2vh;
-      padding-bottom: 2vh;
+      padding-top: 2vw;
+      padding-bottom: 2vw;
     }
     &-agree-title {
       width: $content-width;
-      margin: 2vh auto;
+      margin: 2vw auto;
     }
     &-content-detail {
       width: $content-width;
-      margin: 2vh auto;
+      margin: 2vw auto;
     }
     &-content-submit {
       text-align: center;
     }
     &-submit-button {
-      width: 20vh;
-      height: 7vh;
-      font-size: 2.5vh;
+      width: 20vw;
+      height: 7vw;
+      font-size: 2.5vw;
       cursor: pointer;
       border: none;
       border-radius: 1vh;
@@ -95,6 +95,6 @@ $content-width: 80%;
       }
     }
     &-pictogram {
-      width: 3vh;
+      width: 3vw;
     }
 }

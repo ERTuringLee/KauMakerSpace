@@ -1,20 +1,44 @@
 .Header {
   &-logo {
     width: 45vw;
+    margin-top:1vw;
     display: inline-block;
     text-align: left;
     img {
-      height: 7vmin;
+      height: 7vw;
     }
   }
   &-login-register {
     width: 45vw;
     display: inline-block;
     text-align: right;
-    img {
-      height: 7vmin;
+    margin-top: 0vw;
+    margin-bottom: 1vw;
+  }
+  &-login {
+    display: inline-block;
+    span {
+      display: block;
+      font-size: 1.5vw;
+      color: black;
+      line-height: 0px;
     }
-    margin-top: 2vmin;
-    margin-bottom: 0vmin;
+    img {
+      height: 4vw;
+    }
+  }
+  &-register {
+    display: inline-block;
+    text-align: center;
+    margin-left: 2vw;
+    span {
+      display: block;
+      font-size: 1.5vw;
+      color: black;
+      line-height: 0px;
+    }
+    img {
+      height: 4vw;
+    }
   }
 }

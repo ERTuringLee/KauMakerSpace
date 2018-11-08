@@ -8,16 +8,16 @@
       margin-left: 2.5%;
       display: inline-block;
       color: rgb(85, 28, 147);
-      font-size: 5vh;
-      padding-top: 2vh;
-      padding-bottom: 2vh;
+      font-size: 4.5vw;
+      padding-top: 2vw;
+      padding-bottom: 2vw;
     }
     &-title-category {
       width: 40%;
       margin-left: 7.5%;
       text-align: right;
       display: inline-block;
-      font-size: 2vh;
+      font-size: 1.75vw;
       a {
         text-decoration: none;
         color: blue;
@@ -44,6 +44,9 @@
     }
     &-content {
       text-align: center;
+      a {
+        color: black;
+      }
     }
     &-content-card {
       width: 30vw;

@@ -11,7 +11,7 @@
     &-title-category {
     width: 40%;
     margin-right: 5vw;
-    text-align:right;
+    text-align: right;
     display: inline-block;
     font-size: 2vh;
         a {
@@ -19,4 +19,50 @@
             color: blue;
         }
     }
+    &-search {
+        padding-top: 2vw;
+        padding-bottom: 2vw;
+    }
+    &-search-container {
+        width: 70%;
+        margin: 0 auto;
+        border: #ccc solid 3px;
+        text-align: left;
+        input {
+            width: 98%;
+            border: none;
+            font-size: 3vw;
+            padding: 0.5vw;
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+    &-content-card {
+        width: 30vw;
+        margin: 1vw 0.5vw;
+        display: inline-block;
+        border: 1px solid #ccc;
+    }
+    &-image {
+        &-title {
+            padding-top: 2vw;
+            padding-bottom: 2vw;
+            h6 {
+                margin: 0px;
+            }
+        }
+        &-date {
+            padding-top: 1vw;
+            padding-bottom: 1vw;
+            h6 {
+                margin: 0px;
+            }
+            background-color: #ccc;
+        }
+        img {
+            width: 100%;
+        }
+    }
+
 }

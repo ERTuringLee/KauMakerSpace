@@ -23,4 +23,23 @@
       color: blue;
     }
   }
+  &-search {
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+  }
+  &-search-container {
+    width: 70%;
+    margin: 0 auto;
+    border: #ccc solid 3px;
+    text-align: left;
+    input {
+        width: 98%;
+        border: none;
+        font-size: 3vw;
+        padding: 0.5vw;
+        &:focus {
+            outline: none;
+        }
+    }
+  }
 }

@@ -20,4 +20,38 @@
             color: blue;
         }
     }
+    &-search {
+        padding-top: 2vw;
+        padding-bottom: 2vw;
+    }
+    &-search-container {
+        width: 70%;
+        margin: 0 auto;
+        border: #ccc solid 3px;
+        text-align: left;
+        input {
+            width: 98%;
+            border: none;
+            font-size: 3vw;
+            padding: 0.5vw;
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+    &-content-container {
+        table {
+            width: 100%;
+            border-top: 1px solid rgb(85, 28, 147);
+            border-collapse: collapse;
+            th {
+                background-color: rgb(85, 28, 147);
+                color: #ccc;
+            }
+            td {
+                border-bottom: 1px solid #ccc;
+            }
+        }
+    }
+    
 }

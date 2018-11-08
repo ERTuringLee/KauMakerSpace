@@ -11,9 +11,9 @@ const cx = classnames.bind(css);
 const moduleName = "Home";
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
   render() {
     return (
       <div className={cx(`${moduleName}`)}>

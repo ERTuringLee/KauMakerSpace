@@ -22,7 +22,21 @@ class FestivalComponent extends Component {
             행사 안내
           </div>
           <div className={cx(`${moduleName}-title-category`)}>
-          <Link to="/">HOME</Link> > <Link to="/festival">행사 안내</Link>
+            <Link to="/">HOME</Link> > <Link to="/festival">행사 안내</Link>
+          </div>
+        </div>
+        <div className={cx(`${moduleName}-search`)}>
+          <div className={cx(`${moduleName}-search-container`)}>
+            <input type="text" placeholder="검색어를 입력해주세요." />
+          </div>
+        </div>
+        <div className={cx(`${moduleName}-month`)}>
+          <div className={cx(`${moduleName}-month`)}>
+          </div>
+        </div>
+        <div className={cx(`${moduleName}-content`)}>
+          <div className={cx(`${moduleName}-content-container`)}>
+            
           </div>
         </div>
       </div>

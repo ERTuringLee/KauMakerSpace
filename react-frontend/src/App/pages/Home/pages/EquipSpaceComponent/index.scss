@@ -73,10 +73,13 @@ $content-width: 80%;
     &-agree-title {
       width: $content-width;
       margin: 2vw auto;
+      font-size: 2vw;
+      font-weight: 500;
     }
     &-content-detail {
       width: $content-width;
       margin: 2vw auto;
+      font-size: 1.3vw;
     }
     &-content-submit {
       text-align: center;

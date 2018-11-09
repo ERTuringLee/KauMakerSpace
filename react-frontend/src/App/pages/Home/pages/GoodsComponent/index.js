@@ -61,7 +61,7 @@ class GoodsComponent extends Component {
             </div>
             <div className={cx(`${moduleName}-image-title`)}>
               <h6>{post.title}</h6>
-              <h6>작성자: {post.writer}</h6>
+              <h6>메이커: {post.writer}</h6>
             </div>
             <div className={cx(`${moduleName}-image-date`)}>
               <h6>작성일: {post.date}</h6>

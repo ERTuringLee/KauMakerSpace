@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 
 import Header from "./components/Header";
 import Bar from "./components/Bar";
+import Footer from "./components/Footer";
 import routes from "./routes";
 import css from "./index.scss";
 
@@ -24,6 +25,7 @@ class Home extends Component {
             <Route {...routeProps} key={routeProps.path || ""} />
           ))}
         </Switch>
+        <Footer />
       </div>
     );
   }

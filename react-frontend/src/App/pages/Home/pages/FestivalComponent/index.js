@@ -66,7 +66,7 @@ class FestivalComponent extends Component {
                   <h5>{post.remain}명 남음 ({post.register}/{post.original})</h5>
                 </div>
                 <div className={cx(`${moduleName}-card-description-button`)}>
-                  <button className={cx(`${moduleName}-card-description-button-detail`)}>상세보기</button><button className={cx(`${moduleName}-card-description-button-apply`)}>신청하기</button>
+                  <Link to={`/festival/detail/${post.id}`}><button className={cx(`${moduleName}-card-description-button-detail`)}>상세보기</button></Link><Link to={`/festival/register/${post.id}`}><button className={cx(`${moduleName}-card-description-button-apply`)}>신청하기</button></Link>
                 </div>
               </div>
             </div>)}

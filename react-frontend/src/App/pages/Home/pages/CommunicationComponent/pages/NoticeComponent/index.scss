@@ -40,6 +40,7 @@
         }
     }
     &-content-container {
+        margin-bottom: 2vw;
         table {
             width: 100%;
             border-top: 1px solid rgb(85, 28, 147);
@@ -47,9 +48,11 @@
             th {
                 background-color: rgb(85, 28, 147);
                 color: #ccc;
+                font-size: 1.5vw;
             }
             td {
                 border-bottom: 1px solid #ccc;
+                font-size: 1.5vw;
                 a {
                     color: black;
                     text-decoration: none;

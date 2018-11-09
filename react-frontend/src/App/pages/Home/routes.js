@@ -17,51 +17,51 @@ const routes = [
     exact: true,
     component: FestivalComponent
   },
-  {
-    path: "/festival/:id",
-    exact: true,
-    component: FestivalComponent
-  },
+  // {
+  //   path: "/festival/:id",
+  //   exact: true,
+  //   component: FestivalComponent
+  // },
   {
     path: "/goods",
     exact: true,
     component: GoodsComponent
   },
-  {
-    path: "/goods/:id",
-    exact: true,
-    component: GoodsComponent
-  },
+  // {
+  //   path: "/goods/:id",
+  //   exact: true,
+  //   component: GoodsComponent
+  // },
   {
     path: "/communication/notice",
     exact: true,
     component: NoticeComponent
   },
-  {
-    path: "/communication/notice/:id",
-    exact: true,
-    component: NoticeComponent
-  },
+  // {
+  //   path: "/communication/notice/:id",
+  //   exact: true,
+  //   component: NoticeComponent
+  // },
   {
     path: "/communication/information",
     exact: true,
     component: InformationComponent
   },
-  {
-    path: "/communication/information/:id",
-    exact: true,
-    component: InformationComponent
-  },
+  // {
+  //   path: "/communication/information/:id",
+  //   exact: true,
+  //   component: InformationComponent
+  // },
   {
     path: "/communication/activity",
     exact: true,
     component: ActivityComponent
   },
-  {
-    path: "/communication/activity/:id",
-    exact: true,
-    component: ActivityComponent
-  },
+  // {
+  //   path: "/communication/activity/:id",
+  //   exact: true,
+  //   component: ActivityComponent
+  // },
   {
     path: "/equip_space",
     exact: true,

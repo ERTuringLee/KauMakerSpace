@@ -1,0 +1,20 @@
+.Footer {
+    background-color: rgb(67, 67, 71);
+    &-container {
+        width: 70%;
+        padding-top: 2vw;
+        padding-bottom: 1.5vw;
+        margin: 0 auto;
+        &-base {
+            text-align: left;
+            color: white;
+            margin-bottom: 0.25vw;
+            font-size: 1.5vw;
+        }
+        &-copyright {
+            text-align: left; 
+            color: white;
+            font-size: 1.5vw;
+        }
+    }
+}

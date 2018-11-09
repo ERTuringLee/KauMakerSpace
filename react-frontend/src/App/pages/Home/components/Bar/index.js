@@ -26,7 +26,7 @@ class Bar extends Component {
     return (
       <div className={cx(`${moduleName}`)}>
         <Link to="/festival">
-          <button className={(location[location.length-1]==="festival"||location[location.length-2]==="festival")?cx(`${moduleName}-button-focus`):cx(`${moduleName}-button-not-focus`)}>행사 안내</button>
+          <button className={(location[location.length-1]==="festival"||location[location.length-3]==="festival")?cx(`${moduleName}-button-focus`):cx(`${moduleName}-button-not-focus`)}>행사 안내</button>
         </Link>
         <Link to="/goods">
           <button className={(location[location.length-1]==="goods"||location[location.length-2]==="goods")?cx(`${moduleName}-button-focus`):cx(`${moduleName}-button-not-focus`)}>작품 구경</button>

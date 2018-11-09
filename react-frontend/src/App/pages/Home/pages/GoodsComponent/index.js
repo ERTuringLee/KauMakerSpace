@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 import classnames from "classnames/bind";
 
 import css from "./index.scss";
+import Title from "../../components/Title"
 
 import goods1 from "src/App/pages/Home/assets/goods1.jpg";
 import goods2 from "src/App/pages/Home/assets/goods2.jpg";
@@ -35,14 +36,12 @@ class GoodsComponent extends Component {
   render() {
     return (
       <div className={cx(`${moduleName}`)}>
-        <div className={cx(`${moduleName}-title`)}>
-          <div className={cx(`${moduleName}-title-text`)}>
-            작품 구경
-          </div>
-          <div className={cx(`${moduleName}-title-category`)}>
-          <Link to="/">HOME</Link> > <Link to="/goods">작품 구경</Link>
-          </div>
-        </div>
+        <Title 
+          title="작품 구경"
+          url1="goods"
+          url2=""
+          urlName1="작품 구경"
+          urlName2=""/>
         <div className={cx(`${moduleName}-search`)}>
           <div className={cx(`${moduleName}-search-container`)}>
             <input type="text" placeholder="검색어를 입력해주세요." />

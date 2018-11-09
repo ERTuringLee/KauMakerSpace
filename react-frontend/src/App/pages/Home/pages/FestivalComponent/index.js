@@ -9,6 +9,7 @@ import festival3 from "src/App/pages/Home/assets/festival3.png";
 import festival4 from "src/App/pages/Home/assets/festival4.png";
 
 import css from "./index.scss";
+import Title from "../../components/Title"
 const cx = classnames.bind(css);
 
 const moduleName = "FestivalComponent";
@@ -31,14 +32,12 @@ class FestivalComponent extends Component {
   render() {
     return (
       <div className={cx(`${moduleName}`)}>
-        <div className={cx(`${moduleName}-title`)}>
-          <div className={cx(`${moduleName}-title-text`)}>
-            행사 안내
-          </div>
-          <div className={cx(`${moduleName}-title-category`)}>
-            <Link to="/">HOME</Link> > <Link to="/festival">행사 안내</Link>
-          </div>
-        </div>
+        <Title 
+          title="행사 안내"
+          url1="festival"
+          url2=""
+          urlName1="행사 안내"
+          urlName2=""/>
         <div className={cx(`${moduleName}-search`)}>
           <div className={cx(`${moduleName}-search-container`)}>
             <input type="text" placeholder="검색어를 입력해주세요." />

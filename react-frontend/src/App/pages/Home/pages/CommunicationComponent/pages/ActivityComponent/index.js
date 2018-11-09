@@ -3,6 +3,8 @@ import {Link} from "react-router-dom";
 
 import classnames from "classnames/bind";
 import css from "./index.scss";
+import Title from "../../../../components/Title"
+
 import makers_active from "src/App/pages/Home/assets/makers_active.jpeg"
 import makers_active2 from "src/App/pages/Home/assets/makers_active2.jpeg"
 import makers_active3 from "src/App/pages/Home/assets/makers_active3.jpeg"
@@ -34,14 +36,12 @@ class ActivityComponent extends Component {
   render() {
     return (
       <div className={cx(`${moduleName}`)}>
-        <div className={cx(`${moduleName}-title`)}>
-          <div className={cx(`${moduleName}-title-text`)}>
-            활동사진
-          </div>
-          <div className={cx(`${moduleName}-title-category`)}>
-            <Link to="/">HOME</Link> > <Link to="/communication/notice">소통 공간</Link> > <Link to="/communication/activity">활동사진</Link>
-          </div>
-        </div>
+        <Title 
+            title="활동사진"
+            url1="communication"
+            url2="activity"
+            urlName1="소통 공간"
+            urlName2="활동사진"/>
         <div className={cx(`${moduleName}-search`)}>
           <div className={cx(`${moduleName}-search-container`)}>
             <input type="text" placeholder="검색어를 입력해주세요." />

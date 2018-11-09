@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {Link} from "react-router-dom";
 
 import classnames from "classnames/bind";
+import Title from "../../components/Title"
 
 // import nameIcon from "src/App/pages/Home/assets/name.png"
 import css from "./index.scss";
@@ -20,14 +21,12 @@ class EquipSpaceComponent extends Component {
   render() {
     return (
       <div className={cx(`${moduleName}`)}>
-        <div className={cx(`${moduleName}-title`)}>
-          <div className={cx(`${moduleName}-title-text`)}>
-            장비&사용 신청
-          </div>
-          <div className={cx(`${moduleName}-title-category`)}>
-            <Link to="/">HOME</Link> > <Link to="/equip_space">장비&공간 신청</Link>
-          </div>
-        </div>
+        <Title 
+          title="장비&공간 신청"
+          url1="equip_space"
+          url2=""
+          urlName1="장비&공간 신청"
+          urlName2=""/>
         <div className={cx(`${moduleName}-content`)}>
           <div className={cx(`${moduleName}-human`)}>
             <div className={cx(`${moduleName}-human-title`)}>

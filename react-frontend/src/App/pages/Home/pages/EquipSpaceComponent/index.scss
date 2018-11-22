@@ -1,6 +1,7 @@
 $title-color:rgb(0,144,192); 
 $content-width: 80%;
 .EquipSpaceComponent {
+  margin-top: 16vw;
   text-align: left;
     &-content {
       background-color: white;
@@ -15,18 +16,11 @@ $content-width: 80%;
       padding-top: 2vh;
       padding-bottom: 2vh;
     }
-    &-title-text {
-      width: 40%;
-      margin-left: 2.5%;
-      display: inline-block;
-      color: rgb(85, 28, 147);
-      font-size: 4.5vw;
-      padding-top: 2vw;
-      padding-bottom: 2vw;
-    }
+    
     &-detail {
       margin-top: 2vw;
       margin-bottom: 2vw;
+      font-size: 1.5vw;
       textarea {
         width: 80%;
         height: 10vw;
@@ -35,18 +29,14 @@ $content-width: 80%;
           outline: none;
         }
       }
-    }
-    &-title-category {
-      width: 40%;
-      margin-left: 7.5%;
-      text-align:right;
-      display: inline-block;
-      font-size: 1.75vw;
-      a {
-        text-decoration: none;
-        color: blue;
+      input {
+        font-size: 1.5vw;
+        &:focus {
+          outline: none;
+        }
       }
     }
+    
     &-human-title {
       color: $title-color;
       width: 95%;

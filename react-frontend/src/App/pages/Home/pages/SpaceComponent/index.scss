@@ -1,0 +1,113 @@
+.SpaceComponent {
+  margin-top: 16vw;
+  &-pagination {
+    text-align: center;
+    margin-bottom: 2vw;
+    &-container {
+      display: inline-block;
+      border-top: 2px #ccc solid;
+      border-bottom: 2px #ccc solid;
+      border-left: 2px #ccc solid;
+    }
+    &-detail {
+      display: inline-block;
+      width: 2vw;
+      font-size: 2vw;
+      border-right: 2px #ccc solid;
+      cursor: pointer;
+    }
+  }
+  &-content {
+    margin-bottom: 2vw;
+    &-container {
+      border-top: 3px solid #ccc;
+      width: 90%;
+      margin: 0 auto;
+      position: relative;
+    }
+    &-card {
+      border-bottom: 3px solid #ccc;
+      padding: 1vw;
+      text-align: left;
+      position: relative;
+    }
+  }
+  &-card {
+    &-image {
+      width: 20vw;
+      height: 30vw;
+      position: absolute;
+      top: 1vw;
+      left: 1vw;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      img {
+        width: 20vw;
+      }
+    }
+    &-description {
+      width: 70vw;
+      position: relative;
+      left: 20vw;
+      &-title {
+        width: 25vw;
+        position: absolute;
+        height: 30vw;
+        left: 0px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        &-detail {
+          h1 {
+            margin: 0px;
+            font-size: 4vw;
+            text-align: center;
+          }
+        }
+      }
+      &-content {
+        width: 40vw;
+        position: relative;
+        left: 26.5vw;
+        height: 30vw;
+        text-align: left;
+        border-top: 1px solid #ccc;
+        &-detail {
+          border-bottom: 1px solid #ccc;
+          padding-top: 0.5vw;
+          padding-bottom: 0.5vw;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          &-title {
+            font-size: 2.15vw;
+            display: inline-block;
+            width: 15vw;
+            
+          }
+          &-content {
+            font-size: 2.15vw; 
+            display: inline-block;
+            width: 25vw;
+          }
+        }
+      }
+      &-button {
+        text-align: center;
+        &-detail {
+          color: white;
+          border: none;
+          border-radius: 1vw;
+          background-color: rgb(77,50,142);
+          font-size: 3vw;
+          padding: 1vw 3vw;
+          cursor: pointer;
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+}

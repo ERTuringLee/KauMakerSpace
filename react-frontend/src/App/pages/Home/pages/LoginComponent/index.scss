@@ -1,0 +1,44 @@
+.LoginComponent {
+    margin-top: 16vw;
+    &-content {
+        border-top: 1px solid #ccc;
+        padding-top: 2vw;
+        padding-bottom: 2vw;
+    }
+    &-content-detail {
+        border: 1px solid #ccc;
+        display: inline-block;
+        padding: 3vw;
+        text-align:left;
+        &-id {
+            input {
+                width: 25vw;
+                font-size: 2vw;
+            }
+            margin-bottom: 2vw;
+            font-size: 2vw;
+        }
+        &-password {
+            input {
+                width: 25vw;
+                font-size: 2vw;
+            }
+            margin-bottom: 2vw;
+            font-size: 2vw;
+        }
+        &-button {
+            text-align:center;
+            button {
+                width: 10vw;
+                font-size: 1.5vw;
+                border: none;
+                padding: 1vw;
+                background-color: #4d328e;
+                color: white;
+                border-radius: 1vw;
+                cursor: pointer;
+            }
+        }
+    }
+
+}

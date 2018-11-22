@@ -1,19 +1,9 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import axios from 'axios';
 
 import classnames from "classnames/bind";
 
 import maker_space from "src/App/pages/Home/assets/KAU_DRONE.jpg";
-import maker_space_in from "src/App/pages/Home/assets/makerspace.png"
-import festival1 from "src/App/pages/Home/assets/festival1.png";
-import festival2 from "src/App/pages/Home/assets/festival2.png";
-import festival3 from "src/App/pages/Home/assets/festival3.png";
-import goods1 from "src/App/pages/Home/assets/goods1.jpg";
-import goods2 from "src/App/pages/Home/assets/goods2.jpg";
-import goods3 from "src/App/pages/Home/assets/goods3.jpg";
-import makers_active from "src/App/pages/Home/assets/makers_active.jpeg"
-import makers_active2 from "src/App/pages/Home/assets/makers_active2.jpeg"
-import makers_active3 from "src/App/pages/Home/assets/makers_active3.jpeg"
 
 import css from "./index.scss";
 
@@ -25,24 +15,74 @@ class MainComponent extends Component {
     super();
     this.state = {
       data1: [
-        {id: 4, src:cx(`${festival1}`), title: "메이커를 위한 아두이노 교육", apply1: "18.11.01", apply2: "18.11.10", f_time1: "18.11.12", f_time2: "18.11.13", type1: "무료", type2: "교육", remain: 19, register: 1, original: 20},
-        {id: 3, src:cx(`${festival2}`), title: "함께하는 로봇 세미나", apply1: "18.11.05", apply2: "18.11.15", f_time1: "18.11.17", f_time2: "18.11.17", type1: "무료", type2: "세미나", remain: 10, register: 10, original: 20},
-        {id: 2, src:cx(`${festival3}`), title: "메이커를 위한 3D 모델링 교육", apply1: "18.11.03", apply2: "18.11.17", f_time1: "18.11.19", f_time2: "18.11.23", type1: "유료", type2: "교육", remain: 19, register: 1, original: 20}
+       
       ],
       data2: [
-        {id:9, url:cx(`${goods1}`), title:'나무 휴대폰충전독과 수납장', writer:'Arthur',date:'18.11.06'},
-        {id:8, url:cx(`${goods2}`), title:'티타늄 열쇠고리', writer:'Daniel',date:'18.11.06'},
-        {id:7, url:cx(`${goods3}`), title:'자작 휴대폰 케이스', writer:'Erwin',date:'18.11.06'}
+        
       ],
       data3: [
-        {id:9, url:cx(`${makers_active}`), title:"창업동아리 SEED 정기모임", date:"18.11.06"},
-        {id:8, url:cx(`${makers_active2}`), title:"자작 크리스마스 트리만들기", date:"18.11.06"},
-        {id:7, url:cx(`${makers_active3}`), title:"유치원생 대상 창의력증진교육", date:"18.11.06"}
+        
       ]
 
     };
   }
-
+  componentDidMount () {
+      let date = new Date();
+      axios.get('/festival')
+        .then(res => {
+          const rawData = res.data.reverse();
+          const data = rawData.filter((post)=>{
+            let date1 = post.f_time1.split('.')
+            let date2 = post.f_time2.split('.')
+            let date3 = post.apply1.split('.')
+            let date4 = post.apply2.split('.')
+            let nowMonth = date.getMonth() + 1
+            return ((Number(date1[1]) === Number(nowMonth))||(Number(date2[1]) === Number(nowMonth))||(Number(date3[1]) === Number(nowMonth))||(Number(date4[1]) === Number(nowMonth)))
+          })
+          let data1 = [];
+          if (data.length >3) {
+            for(var i=0;i<3; i++) {
+              data1.push(data[i])
+            }
+          }else {
+            for(var i=0;i<data.length; i++) {
+              data1.push(data[i])
+            }
+          }
+          this.setState({data1})
+        })
+      axios.get('/goods')
+        .then(res => {
+          const data = res.data.reverse();
+          let data2 = [];
+          if (data.length >3) {
+            for(var i=0;i<3; i++) {
+              data2.push(data[i])
+            }
+          }else {
+            for(var i=0;i<data.length; i++) {
+              data2.push(data[i])
+            }
+          }
+          this.setState({data2})
+        })
+      axios.get('/activity')
+      .then(res => {
+        const data = res.data.reverse();
+        let data3 = [];
+        if (data.length >3) {
+          for(var i=0;i<3; i++) {
+            data3.push(data[i])
+          }
+        }else {
+          for(var i=0;i<data.length; i++) {
+            data3.push(data[i])
+          }
+        }
+        this.setState({data3})
+      })
+      document.documentElement.scrollTop = 0;
+  }
   render() {
     return (
       <div className={cx(`${moduleName}`)}>
@@ -58,7 +98,18 @@ class MainComponent extends Component {
             </div>
           </div>
         </div>
-        <div className={cx(`${moduleName}-box`)}>
+        <div className={cx(`${moduleName}-container`)}>
+          <div className={cx(`${moduleName}-container-title`)}>
+            WHERE WE ARE
+          </div>
+          <div className={cx(`${moduleName}-container-map`)}>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d701.3145616407753!2d126.86430927243846!3d37.60085461240559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9a2b0774ff21%3A0x5e9b0ff824b2ac47!2z6rOg7JaR7IucIO2YhOyynOuPmSDtlZzqta3tla3qs7XrjIDtlZnqtZAg7KCE7J6Q6rSA!5e0!3m2!1sko!2skr!4v1542334646140" width="600" height="450" frameborder="0" style={{width: '70vw', height: '40vw'}} allowfullscreen></iframe>
+          </div>
+          <div className={cx(`${moduleName}-container-content`)}>
+            KAU 드론 & 공예 메이커스페이스
+          </div>
+        </div>
+        {/* <div className={cx(`${moduleName}-box`)}>
           <div className={cx(`${moduleName}-content`)}
           style={{
             backgroundImage: "url("+cx(`${maker_space_in}`)+")",
@@ -90,8 +141,8 @@ class MainComponent extends Component {
               </div>
             </div>
           </div>
-        </div>
-        <div className={cx(`${moduleName}-box`)}>
+        </div> */}
+        {/* <div className={cx(`${moduleName}-box`)}>
           <div className={cx(`${moduleName}-content`)}
             style={{
               backgroundColor: 'white',
@@ -99,7 +150,7 @@ class MainComponent extends Component {
           >
             <div className={cx(`${moduleName}-detail-container`)}>
               <div className={cx(`${moduleName}-detail-title`)}>
-                <h1>우수 작품</h1>
+                <h1>이달의 교육</h1>
                 <div className={cx(`${moduleName}-more`)}>
                   <h6><Link to="/goods">+더보기</Link></h6>
                 </div>
@@ -117,11 +168,9 @@ class MainComponent extends Component {
               </div>
             </div>
           </div>
-        </div>
-        <div className={cx(`${moduleName}-box`)}>
-          <div className={cx(`${moduleName}-content`)} 
-               style={{ backgroundColor: 'rgb(240,240,240)'}}
-          >
+        </div> */}
+        {/* <div className={cx(`${moduleName}-box`)}>
+          <div className={cx(`${moduleName}-content`)} style={{ backgroundColor: 'rgb(240,240,240)'}}>
             <div className={cx(`${moduleName}-detail-container`)}>
               <div className={cx(`${moduleName}-detail-title`)}>
                 <h1>활동 사진</h1>
@@ -141,7 +190,7 @@ class MainComponent extends Component {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>  
     );
   }

@@ -18,7 +18,7 @@ class Header extends Component {
                     <img src={logo} alt="logo"/>
                   </Link>
                 </div>
-                <div className={cx(`${moduleName}-login-register`)}>
+                {/* <div className={cx(`${moduleName}-login-register`)}>
                   <Link to="/login">
                     <div className={cx(`${moduleName}-login`)}>
                       <img src={loginIcon} alt="logIn"/>
@@ -31,7 +31,7 @@ class Header extends Component {
                       <span>회원가입</span>
                     </div>
                   </Link>
-                </div>
+                </div> */}
             </div>
         )
     }

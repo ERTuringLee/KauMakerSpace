@@ -22,7 +22,7 @@ class Title extends Component {
         </div>
         <div className={cx(`${moduleName}-category`)}>
           <Link to="/">HOME</Link> > <Link to={"/"+this.props.url1}>{this.props.urlName1}</Link>
-          {this.props.url2!==""?`> `:''}
+          {this.props.url2!==""?` > `:''}
           {this.props.url2!==""?<Link to={"/"+this.props.url1+"/"+this.props.url2}>{this.props.urlName2}</Link>:''}
         </div>
       </div>

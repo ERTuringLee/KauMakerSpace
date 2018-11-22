@@ -1,0 +1,30 @@
+.TimeComponent {
+    width: 25vw;
+    display: inline-block;
+    text-align: left;
+    position: relative;
+    left: 0px;
+    height: 25vw;
+    &-title {
+      color: black;
+      font-size: 2.5vw;
+      font-weight: 300;
+      padding-bottom: 1vw;
+    }
+    &-content {
+      &-daily {
+        display: inline-block;
+        font-size: 2vw;
+        font-weight: 300;
+        border-bottom: 3px solid rgb(77, 50, 142);
+        margin-bottom: 0.5vw;
+      }
+      &-time {
+        font-size: 2.2vw;
+        color: rgb(77, 50, 142);
+        font-weight: 400;
+        padding-bottom: 0.5vw;
+      }
+    }
+
+}

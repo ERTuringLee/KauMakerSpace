@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {Link} from "react-router-dom";
+import axios from 'axios';
 
 import classnames from "classnames/bind";
 import css from "./index.scss";
@@ -18,19 +19,31 @@ class ActivityComponent extends Component {
     super();
     this.state = {
       data: [
-        {id:9, url:cx(`${makers_active}`), title:"창업동아리 SEED 정기모임", date:"18.11.06"},
-        {id:8, url:cx(`${makers_active2}`), title:"자작 크리스마스 트리만들기", date:"18.11.06"},
-        {id:7, url:cx(`${makers_active3}`), title:"유치원생 대상 창의력증진교육", date:"18.11.06"},
-        {id:6, url:cx(`${makers_active}`), title:"창업동아리 SEED 정기모임", date:"18.11.06"},
-        {id:5, url:cx(`${makers_active2}`), title:"자작 크리스마스 트리만들기", date:"18.11.06"},
-        {id:4, url:cx(`${makers_active3}`), title:"유치원생 대상 창의력증진교육", date:"18.11.06"},
-        {id:3, url:cx(`${makers_active}`), title:"창업동아리 SEED 정기모임", date:"18.11.06"},
-        {id:2, url:cx(`${makers_active2}`), title:"자작 크리스마스 트리만들기", date:"18.11.06"},
-        {id:1, url:cx(`${makers_active3}`), title:"유치원생 대상 창의력증진교육", date:"18.11.06"},
+
+      ],
+      page: [
+
       ]
     };
   }
   componentDidMount () {
+    axios.get('/activity')
+      .then(res => {
+        const data = res.data.reverse();
+        this.setState({data})
+        let lastPage = Math.ceil(data.length / 9)
+          console.log(lastPage)
+          let page = ""
+          for (var i=1; i<=lastPage; i++) {
+            if (i!==lastPage){
+              page = page + i +","
+            }else {
+              page = page + i
+            }
+          }
+          page = page.split(',')
+          this.setState({page})
+      }) 
     document.documentElement.scrollTop = 0;
   }
   render() {
@@ -42,11 +55,11 @@ class ActivityComponent extends Component {
             url2="activity"
             urlName1="소통 공간"
             urlName2="활동사진"/>
-        <div className={cx(`${moduleName}-search`)}>
+        {/* <div className={cx(`${moduleName}-search`)}>
           <div className={cx(`${moduleName}-search-container`)}>
             <input type="text" placeholder="검색어를 입력해주세요." />
           </div>
-        </div>
+        </div> */}
         <div className={cx(`${moduleName}-content`)}>
           {this.state.data.map((post) =><Link to={`/communication/activity/${post.id}`}> 
           <div className={cx(`${moduleName}-content-card`)}>
@@ -60,6 +73,14 @@ class ActivityComponent extends Component {
               <h6>작성일: {post.date}</h6>
             </div>
           </div></Link>)}
+        </div>
+        <div className={cx(`${moduleName}-pagination`)}>
+          <div className={cx(`${moduleName}-pagination-container`)}>
+            <div className={cx(`${moduleName}-pagination-detail`)}>&lt;</div>
+            {this.state.page.map((post)=> <div className={cx(`${moduleName}-pagination-detail`)} 
+              value={post}>{post}</div>)}
+            <div className={cx(`${moduleName}-pagination-detail`)}>&gt;</div>
+          </div>
         </div>
       </div>
 )

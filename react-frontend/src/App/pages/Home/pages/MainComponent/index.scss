@@ -1,5 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Allerta+Stencil|Dancing+Script|Noto+Sans+KR|Satisfy|Sunflower:300');
 .MainComponent {
+  margin-top: 16vw;
   position: relative;
+  &-container {
+    padding-bottom: 1vw;
+    &-title {
+      font-family: 'Satisfy', cursive;
+      font-size: 4vw;
+      padding-top: 2vw;
+      padding-bottom: 2vw;
+    }
+    &-content {
+      font-family: 'Sunflower', sans-serif;
+      font-size: 3vw;
+      padding-top: 1vw;
+      padding-bottom: 1vw;
+    }
+  }
   &-box {
     position: relative;
     &:before {

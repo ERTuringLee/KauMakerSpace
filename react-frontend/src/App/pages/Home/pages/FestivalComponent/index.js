@@ -1,12 +1,8 @@
 import React, { Component } from "react";
 import {Link} from "react-router-dom"
+import axios from 'axios';
 
 import classnames from "classnames/bind";
-
-import festival1 from "src/App/pages/Home/assets/festival1.png";
-import festival2 from "src/App/pages/Home/assets/festival2.png";
-import festival3 from "src/App/pages/Home/assets/festival3.png";
-import festival4 from "src/App/pages/Home/assets/festival4.png";
 
 import css from "./index.scss";
 import Title from "../../components/Title"
@@ -19,14 +15,114 @@ class FestivalComponent extends Component {
     super();
     this.state = {
       data:[
-        {id: 4, src:cx(`${festival1}`), title: "메이커를 위한 아두이노 교육", apply1: "18.11.01", apply2: "18.11.10", f_time1: "18.11.12", f_time2: "18.11.13", type1: "무료", type2: "교육", remain: 19, register: 1, original: 20},
-        {id: 3, src:cx(`${festival2}`), title: "함께하는 로봇 세미나", apply1: "18.11.05", apply2: "18.11.15", f_time1: "18.11.17", f_time2: "18.11.17", type1: "무료", type2: "세미나", remain: 10, register: 10, original: 20},
-        {id: 2, src:cx(`${festival3}`), title: "메이커를 위한 3D 모델링 교육", apply1: "18.11.03", apply2: "18.11.17", f_time1: "18.11.19", f_time2: "18.11.23", type1: "유료", type2: "교육", remain: 19, register: 1, original: 20},
-        {id: 1, src:cx(`${festival4}`), title: "DIY 목공교육", apply1: "18.11.07", apply2: "18.11.24", f_time1: "18.11.26", f_time2: "18.11.30", type1: "유료", type2: "교육", remain: 29, register: 1, original: 30}
-      ]
+        
+      ],
+      date:new Date(),
+      page:[]
     };
+    this.buttonClick = this.buttonClick.bind(this)
+    this.monthPrev = this.monthPrev.bind(this)
+    this.monthNext = this.monthNext.bind(this)
+  }
+  buttonClick (event) {
+    const filterData = this.state.data.filter((post) => {
+      return post.id === Number(event.target.value);
+    })
+    if (filterData[0].register===filterData[0].original) {
+      alert("신청이 마감되었습니다.")
+    } else {
+      window.location.href = "/festival/register/"+event.target.value
+    }
+  }
+  monthPrev () {
+    this.setState({data:[]})
+    let dayOfMonth = this.state.date.getMonth();
+    this.state.date.setMonth(dayOfMonth-1)
+    axios.get('/festival')
+        .then(res => {
+          const rawData = res.data;
+          const data = rawData.filter((post)=>{
+            let date1 = post.f_time1.split('.')
+            let date2 = post.f_time2.split('.')
+            let date3 = post.apply1.split('.')
+            let date4 = post.apply2.split('.')
+            let nowMonth = this.state.date.getMonth() + 1
+            return ((Number(date1[1]) === Number(nowMonth))||(Number(date2[1]) === Number(nowMonth))||(Number(date3[1]) === Number(nowMonth))||(Number(date4[1]) === Number(nowMonth)))
+          })
+          this.setState({data})
+          let lastPage = Math.ceil(data.length / 4)
+          console.log(lastPage)
+          let page = ""
+          for (var i=1; i<=lastPage; i++) {
+            if (i!==lastPage){
+              page = page + i +","
+            }else {
+              page = page + i
+            }
+          }
+          page = page.split(',');
+          this.setState({page});
+        })
+
+  }
+  monthNext () {
+    this.setState({data:[]});
+    let dayOfMonth = this.state.date.getMonth();
+    this.state.date.setMonth(dayOfMonth+1);
+    axios.get('/festival')
+      .then(res => {
+        const rawData = res.data;
+        const data = rawData.filter((post)=>{
+          let date1 = post.f_time1.split('.')
+          let date2 = post.f_time2.split('.')
+          let date3 = post.apply1.split('.')
+          let date4 = post.apply2.split('.')
+          let nowMonth = this.state.date.getMonth() + 1
+          return ((Number(date1[1]) === Number(nowMonth))||(Number(date2[1]) === Number(nowMonth))||(Number(date3[1]) === Number(nowMonth))||(Number(date4[1]) === Number(nowMonth)))
+        })
+        this.setState({data})
+        let lastPage = Math.ceil(data.length / 4)
+        console.log(lastPage)
+        let page = ""
+        for (var i=1; i<=lastPage; i++) {
+          if (i!==lastPage){
+            page = page + i +","
+          } else {
+            page = page + i
+          }
+        }
+        page = page.split(',')
+        this.setState({page})
+      })
   }
   componentDidMount () {
+    let date = new Date()
+    this.setState({date: date})
+    axios.get('/festival')
+        .then(res => {
+          const rawData = res.data;
+          const data = rawData.filter((post)=>{
+            let date1 = post.f_time1.split('.')
+            let date2 = post.f_time2.split('.')
+            let date3 = post.apply1.split('.')
+            let date4 = post.apply2.split('.')
+            let nowMonth = date.getMonth() + 1
+            return ((Number(date1[1]) === Number(nowMonth))||(Number(date2[1]) === Number(nowMonth))||(Number(date3[1]) === Number(nowMonth))||(Number(date4[1]) === Number(nowMonth)))
+          })
+          this.setState({data})
+          let lastPage = Math.ceil(data.length / 4)
+          console.log(lastPage)
+          let page = ""
+          for (var i=1; i<=lastPage; i++) {
+            if (i!==lastPage){
+              page = page + i +","
+            }else {
+              page = page + i
+            }
+          }
+          page = page.split(',')
+          this.setState({page})
+        })
     document.documentElement.scrollTop = 0;
   }
   render() {
@@ -38,13 +134,17 @@ class FestivalComponent extends Component {
           url2=""
           urlName1="행사 안내"
           urlName2=""/>
-        <div className={cx(`${moduleName}-search`)}>
-          <div className={cx(`${moduleName}-search-container`)}>
-            <input type="text" placeholder="검색어를 입력해주세요." />
-          </div>
-        </div>
         <div className={cx(`${moduleName}-month`)}>
-          <div className={cx(`${moduleName}-month`)}>
+          <div className={cx(`${moduleName}-month-container`)}>
+            <div className={cx(`${moduleName}-month-prev-next`)} onClick={this.monthPrev}>
+              &lt;
+            </div>
+            <div className={cx(`${moduleName}-month-current`)} onClick={this.monthNext}>
+            {this.state.date.getFullYear()}년 {this.state.date.getMonth()+1}월
+            </div>
+            <div className={cx(`${moduleName}-month-prev-next`)} onClick={this.monthNext}>
+              &gt;
+            </div>
           </div>
         </div>
         <div className={cx(`${moduleName}-content`)}>
@@ -65,11 +165,19 @@ class FestivalComponent extends Component {
                   <h5>{post.remain}명 남음 ({post.register}/{post.original})</h5>
                 </div>
                 <div className={cx(`${moduleName}-card-description-button`)}>
-                  <Link to={`/festival/detail/${post.id}`}><button className={cx(`${moduleName}-card-description-button-detail`)}>상세보기</button></Link><Link to={`/festival/register/${post.id}`}><button className={cx(`${moduleName}-card-description-button-apply`)}>신청하기</button></Link>
+                  <Link to={`/festival/detail/${post.id}`}><button className={cx(`${moduleName}-card-description-button-detail`)}>상세보기</button></Link><button onClick={this.buttonClick} className={cx(`${moduleName}-card-description-button-apply`)} value={post.id}>신청하기</button>
                 </div>
               </div>
             </div>)}
           </div>
+        </div>
+        <div className={cx(`${moduleName}-pagination`)}>
+          <div className={cx(`${moduleName}-pagination-container`)}>
+          <div className={cx(`${moduleName}-pagination-detail`)}>&lt;</div>
+          {this.state.page.map((post)=><div className={cx(`${moduleName}-pagination-detail`)} value={post}>{post}</div>)}
+          <div className={cx(`${moduleName}-pagination-detail`)}>&gt;</div>
+          </div>
+        
         </div>
       </div>
     );

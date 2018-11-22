@@ -1,0 +1,119 @@
+$title-color:rgb(0,144,192); 
+$content-width: 80%;
+.RegisterComponent {
+  margin-top: 16vw;
+  text-align: left;
+    &-button {
+        background-color: rgb(233,233,233);
+        text-align: center;
+        &-register {
+            width: 10vw;
+            font-size: 1.5vw;
+            border: none;
+            padding: 1vw;
+            background-color: #4d328e;
+            color: white;
+            border-radius: 1vw;
+            margin-right: 1vw;
+            cursor: pointer;
+            &:focus {
+                outline: none;
+            }
+        }
+        &-return {
+            width: 10vw;
+            font-size: 1.5vw;
+            border: none;
+            padding: 1vw;
+            background-color: blue;
+            color: white;
+            border-radius: 1vw;
+            cursor: pointer;
+            &:focus {
+                outline: none;
+            }
+        }
+        padding-bottom: 2vw;
+    }
+    &-content {
+      background-color: white;
+      
+    }
+    &-human {
+      border-top: #ccc solid 1px;
+      padding-top: 2vh;
+      padding-bottom: 2vh;
+    }
+    &-use {
+      border-top: #ccc solid 1px;
+      padding-top: 2vh;
+      padding-bottom: 2vh;
+    }
+    
+    &-detail {
+      margin-top: 2vw;
+      margin-bottom: 2vw;
+      textarea {
+        width: 80%;
+        height: 10vw;
+        resize: none;
+        &:focus{
+          outline: none;
+        }
+      }
+    }
+    
+    &-human-title {
+      color: $title-color;
+      width: 95%;
+      margin: 0 auto;
+    }
+    &-use-title {
+      color: $title-color;
+      width: 95%;
+      margin: 0 auto;
+    }
+    &-human-content {
+      width: $content-width;
+      margin: 0 auto;
+    }
+    &-use-content {
+      width: $content-width;
+      margin:0 auto;
+    }
+    &-agree {
+      background-color: rgb(233,233,233);
+      padding-top: 2vw;
+      padding-bottom: 2vw;
+    }
+    &-agree-title {
+      width: $content-width;
+      margin: 2vw auto;
+      font-size: 2vw;
+      font-weight: 500;
+    }
+    &-content-detail {
+      width: $content-width;
+      margin: 2vw auto;
+      font-size: 1.3vw;
+    }
+    &-content-submit {
+      text-align: center;
+    }
+    &-submit-button {
+      width: 20vw;
+      height: 7vw;
+      font-size: 2.5vw;
+      cursor: pointer;
+      border: none;
+      border-radius: 1vh;
+      color: white;
+      background-color: rgb(77, 50, 142);
+      &:hover {
+        background-color:rgb(43, 28, 82);
+      }
+    }
+    &-pictogram {
+      width: 3vw;
+    }
+}

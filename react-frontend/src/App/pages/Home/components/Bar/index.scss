@@ -1,50 +1,46 @@
 .Bar {
-  background-color: rgb(77, 50, 142);
+  background-color: rgba(77, 50, 142, 0.95);
   height: 8vw;
-  padding-left: 1.5vw;
-  padding-right: 1.5vw;
-  ul {
-    list-style:none;
-  }
+  position:fixed;
+  width: 100%;
+  z-index: 999;
+  top: 8vw;
   button {
     text-decoration: none;
     border: none;
     color: white;
     font-size: 2.5vw;
-    width: 22vw;
+    width: 15vw;
     height: 8vw;
     cursor: pointer;
     &:hover {
-      background-color: rgb(43, 28, 82);
+      background-color: rgba(43, 28, 82, 0.95);
     }
     &:focus {
       outline: none;
     }
   }
-  &-button-focus {
-    background-color: rgb(43, 28, 82);
+  &-focus {
+    background-color: rgba(43, 28, 82, 0.95);
   }
-  &-button-not-focus {
-    background-color: rgb(77, 50, 142)
-  }
-  &-nav-menu-item {
-    display: inline-block;
-    width: 22%;
+  &-not-focus {
+    background-color: transparent;
+    &-detail {
+      background-color: rgba(77, 50, 142, 0.95);
+    }
   }
   &-detail-menu {
     width: 100%;
     position: absolute;
     left: 0px;
-    z-index: 1000;
+    &-item {
+      width: 15vw;
+      display: inline-block;
+      button {
+        cursor:pointer;
+        // background-color: rgba(77, 50, 142, 0.95);
+      }
+
+    }
   } 
-  &-detail-menu-item {
-    width: 22vw;
-    display: inline-block;
-  }
-  &-button-focus-detail {
-    background-color: rgb(43, 28, 82);
-  }
-  &-button-not-focus-detail {
-    background-color: rgb(77, 50, 142);
-  }
 }

@@ -11,7 +11,7 @@ class Header extends Component {
       <div className={cx(`${moduleName}`)}>
         <div className={cx(`${moduleName}-container`)}>
           <div className={cx(`${moduleName}-container-base`)}>
-            우 10540 | 경기도 고양시 덕양구 항공대학로 76 (화전동, 한국항공대학교) | 02-300-0404 | maker@kau.ac.kr
+            우 10540 | 경기도 고양시 덕양구 항공대학로 76 (화전동, 한국항공대학교) 전자관 108호 | 02-300-0404 | maker@kau.ac.kr
           </div>
           <div className={cx(`${moduleName}-container-copyright`)}>
             Copyright (C) 2018 Maker Space of KOREA AEROSPACE UNIVERSITY. ALL Right Reseeved.

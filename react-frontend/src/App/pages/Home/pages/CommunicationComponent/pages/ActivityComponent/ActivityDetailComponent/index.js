@@ -6,6 +6,7 @@ import classnames from "classnames/bind";
 
 import css from "./index.scss";
 import Title from "../../../../../components/Title"
+import Bar from "../../../../../components/Bar"
 import ContainerComponent from "./ContainerComponent"
 const cx = classnames.bind(css);
 
@@ -43,6 +44,7 @@ class ActivityComponent extends Component {
   render() {
     return (
       <div className={cx(`${moduleName}`)}>
+        <Bar />
         <Title 
           title="활동사진"
           url1="communication"

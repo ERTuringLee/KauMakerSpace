@@ -6,8 +6,8 @@ import classnames from "classnames/bind";
 
 import css from "./index.scss";
 import Title from "../../components/Title"
-import Axios from "axios";
 // import Content from "./ContentComponent"
+import Bar from "../../components/Bar"
 
 const cx = classnames.bind(css);
 const moduleName = "EquipmentComponent";
@@ -44,6 +44,7 @@ class EquipmentComponent extends Component {
   render() {
     return (
       <div className={cx(`${moduleName}`)}>
+        <Bar />
         <Title 
           title="장비 안내"
           url1="equipment"

@@ -8,10 +8,11 @@ var indexRouter = require('./routes/index');
 var mongoUrl = "mongodb://localhost:27017/platform"
 var nodemailer = require('nodemailer')
 var smtpTransport = require('nodemailer-smtp-transport')
+var session = require('express-session');
 var ejs = require('ejs')
 
 var app = express();
-
+var sess;
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -22,9 +23,16 @@ app.use(express.urlencoded({
   extended: false
 }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', indexRouter);
+
+
+app.use(session({
+  secret: 'abcdefgh',
+  resave: false,
+  saveUninitialized: true
+}))
 app.listen(6508, function () {
   console.log("Server running on 6508");
 })
@@ -37,7 +45,72 @@ const transporter = nodemailer.createTransport(smtpTransport({
   },
   secure: true
 }))
+app.post('/login', function (request, response) {
+  sess = request.session;
+  let user = request.body.user;
+  let userId = user.userId;
+  let userPassword = user.userPassword; 
+  MongoClient.connect(mongoUrl, {
+    useNewUrlParser: true
+  }, function (err, mongodb) {
+    if (err) throw err;
+    const DB = mongodb.db('platform')
+    let resResult = {}
+    if (userId === "admin") {
+      DB.collection('adminData').find({userId:userId}).toArray(function (err, result) {
+        if(userPassword === result[0].userPassword) {
+          resResult["sucess"] = 1;
+          sess.username = "관리자";
+          sess.name = userId;
+          response.json(resResult);
+        } else {
+          resResult["sucess"] = 0;
+          resResult["error"] = "incorrect";
+          response.json(resResult);
+        }
+      })
+    } else {
+      DB.collection('userData').find({userId: userId}).toArray(function (err, result) {
+        if (result.length === 0) {
+          resResult["success"] = 0;
+          resResult["error"] = "not found";
+          response.json(resResult);
+          return;
+        }
+        if (userPassword === result[0].userPassword) {
+          resResult["success"] = 1;
+          sess.username = result[0].username;
+          sess.name = userId;
+          response.json(resResult);
+        } else {
+          resResult["success"] = 0;
+          resResult["error"] = "incorrect";
+          response.json(resResult)
+        }
+      })
+    }
+  })
+  
+  // sess.name = user.username;
+})
+app.get('/session', function (request, response) {
+  sess = [request.session.name, request.session.username];
+  response.send(sess);
+  response.end();
+})
 
+app.post('/logout', function (request, response) {
+
+})
+
+app.post("/space_register", function (request, response) {
+  let user = request.body.user;
+  MongoClient.connect(mongoUrl, {
+    useNewUrlParser: true
+  }, function (err, mongodb) {
+    if (err) throw err;
+  })
+})
 app.post("/festival_register", function (request, response) {
   var user = request.body.user;
   MongoClient.connect(mongoUrl, {
@@ -64,53 +137,7 @@ app.post("/festival_register", function (request, response) {
 
   })
 })
-// app.post("/equip_space", function (request, response) {
-//   var user = request.body.user;
-//   MongoClient.connect(mongoUrl, {
-//     useNewUrlParser: true
-//   }, function (err, mongodb) {
-//     if (err) throw err;
-//     var equipment = '',
-//       useSpace = '';
-//     console.log(user.space2, user.equip8)
-//     useSpace = useSpace + user.space1 === true ? "108호" : "";
-//     useSpace = useSpace + user.space2 === true ? "109호" : "";
-//     equipment = equipment + user.equip1 === true ? "아두이노," : "";
-//     equipment = equipment + user.equip2 === true ? "메이크블록," : "";
-//     equipment = equipment + user.equip3 === true ? "마인드스톰," : "";
-//     equipment = equipment + user.equip4 === true ? "레이저커터," : "";
-//     equipment = equipment + user.equip5 === true ? "3D프린터," : "";
-//     equipment = equipment + user.equip6 === true ? "액자일드론," : "";
-//     equipment = equipment + user.equip7 === true ? "스트라이커 드론," : "";
-//     equipment = equipment + user.equip8 === true ? "라즈베리 파이" : "";
-//     ejs.renderFile(__dirname + '/equip_space.ejs', {
-//       name: user.name,
-//       gender: user.gender1 ? "여성" : "남성",
-//       phone: user.phone,
-//       email: user.email,
-//       address: user.address,
-//       purpose: user.purpose,
-//       space: useSpace,
-//       equip: equipment,
-//       date: user.date
-//     }, function (err, mData) {
-//       if (err) throw err;
-//       var mOptions = {
-//         from: "kaulogiclab@gmail.com",
-//         to: "maker@kau.ac.kr",
-//         subject: user.name + "님이 장비 및 공간 신청했습니다.",
-//         html: mData
-//       }
-//       transporter.sendMail(mOptions)
-//     })
-//     const DB = mongodb.db('platform')
-//     DB.collection('equip_space').insertOne(user).then(function (result) {
-//       console.log(result.result.ok)
-//     })
 
-//   })
-
-// })
 app.get('/space', function (request, response) {
   MongoClient.connect(mongoUrl, {
     useNewUrlParser: true
@@ -123,6 +150,21 @@ app.get('/space', function (request, response) {
     })
   })
 })
+app.get('/space/:id', function (request, response) {
+  var paramId = parseInt(request.params.id)
+  MongoClient.connect(mongoUrl, {
+    useNewUrlParser: true
+  }, function (err, mongodb) {
+    if (err) throw err;
+    const DB = mongodb.db('platform')
+    DB.collection('spaceData').find({
+      id: paramId
+    }).toArray(function (err, result) {
+      if (err) throw err;
+      response.send(result)
+    })
+  })
+})
 app.get('/equipment', function (request, response) {
   MongoClient.connect(mongoUrl, {
     useNewUrlParser: true
@@ -130,6 +172,21 @@ app.get('/equipment', function (request, response) {
     if (err) throw err;
     const DB = mongodb.db('platform')
     DB.collection('equipmentData').find({}).toArray(function (err, result) {
+      if (err) throw err;
+      response.send(result)
+    })
+  })
+})
+app.get('/equipment/:id', function (request, response) {
+  var paramId = parseInt(request.params.id)
+  MongoClient.connect(mongoUrl, {
+    useNewUrlParser: true
+  }, function (err, mongodb) {
+    if (err) throw err;
+    const DB = mongodb.db('platform')
+    DB.collection('equipmentData').find({
+      id: paramId
+    }).toArray(function (err, result) {
       if (err) throw err;
       response.send(result)
     })

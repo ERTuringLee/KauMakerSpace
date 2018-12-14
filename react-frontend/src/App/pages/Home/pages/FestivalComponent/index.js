@@ -6,6 +6,7 @@ import classnames from "classnames/bind";
 
 import css from "./index.scss";
 import Title from "../../components/Title"
+import Bar from "../../components/Bar"
 const cx = classnames.bind(css);
 
 const moduleName = "FestivalComponent";
@@ -128,6 +129,7 @@ class FestivalComponent extends Component {
   render() {
     return (
       <div className={cx(`${moduleName}`)}>
+        <Bar />
         <Title 
           title="행사 안내"
           url1="festival"
@@ -161,7 +163,7 @@ class FestivalComponent extends Component {
                 <div className={cx(`${moduleName}-card-description-content`)}>
                   <h5>신청기간: {post.apply1} ~ {post.apply2}</h5>
                   <h5>행사기간: {post.f_time1} ~ {post.f_time2}</h5>
-                  <h5>유형: <span className={cx(`${moduleName}-card-description-content-type1`)}>{post.type1}</span><span className={cx(`${moduleName}-card-description-content-type2`)}>{post.type2}</span></h5>
+                  <h5>비용: <span className={cx(`${moduleName}-card-description-content-type1`)}>{post.type1}</span><span className={cx(`${moduleName}-card-description-content-type2`)}>{post.type2}</span></h5>
                   <h5>{post.remain}명 남음 ({post.register}/{post.original})</h5>
                 </div>
                 <div className={cx(`${moduleName}-card-description-button`)}>

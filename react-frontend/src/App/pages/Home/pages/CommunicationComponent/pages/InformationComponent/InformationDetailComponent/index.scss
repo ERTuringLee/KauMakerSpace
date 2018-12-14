@@ -1,85 +1,105 @@
 .InformationComponent {
-    margin-top: 16vw;
-    &-title-text {
-        width: 50%;
-        display: inline-block;
-        color: rgb(85, 28, 147);
-        font-size: 4.5vw;
-        padding-top: 2vw;
-        text-align:left;
-        padding-bottom: 2vw;
-    }
-    &-title-category {
+  margin-top: 16vw;
+
+  &-title-text {
+    width: 50%;
+    display: inline-block;
+    color: rgb(85, 28, 147);
+    font-size: 4.5vw;
+    padding-top: 2vw;
+    text-align: left;
+    padding-bottom: 2vw;
+  }
+
+  &-title-category {
     width: 40%;
     margin-right: 5vw;
-    text-align:right;
+    text-align: right;
     display: inline-block;
     font-size: 1.75vw;
+
+    a {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+
+  &-search {
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+  }
+
+  &-search-container {
+    width: 70%;
+    margin: 0 auto;
+    border: #ccc solid 3px;
+    text-align: left;
+
+    input {
+      width: 98%;
+      border: none;
+      font-size: 3vw;
+      padding: 0.5vw;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &-content-container {
+    margin-bottom: 2vw;
+
+    table {
+      width: 100%;
+      border-top: 1px solid rgb(85, 28, 147);
+      border-collapse: collapse;
+
+      th {
+        background-color: rgb(85, 28, 147);
+        color: #ccc;
+        font-size: 1.5vw;
+      }
+
+      td {
+        border-bottom: 1px solid #ccc;
+        font-size: 1.5vw;
+
         a {
-            text-decoration: none;
+          color: black;
+          text-decoration: none;
+
+          &:hover {
             color: blue;
+          }
         }
+      }
+
     }
-    &-search {
-        padding-top: 2vw;
-        padding-bottom: 2vw;
+  }
+
+  &-content-button {
+    margin-bottom: 2vw;
+    button {
+      font-size: 2vw;
+      background-color: rgb(85, 28, 147);
+      color: white;
+      padding: 1.5vw;
+      cursor: pointer;
+      &:focus {
+        outline: none;
+      }
     }
-    &-search-container {
-        width: 70%;
-        margin: 0 auto;
-        border: #ccc solid 3px;
-        text-align: left;
-        input {
-            width: 98%;
-            border: none;
-            font-size: 3vw;
-            padding: 0.5vw;
-            &:focus {
-                outline: none;
-            }
-        }
+  }
+
+  &-next-prev {
+    text-align: left;
+    padding-left: 2vw;
+    padding-right: 2vw;
+
+    a {
+      text-decoration: none;
+      color: black;
     }
-    &-content-container {
-        margin-bottom: 2vw;
-        table {
-            width: 100%;
-            border-top: 1px solid rgb(85, 28, 147);
-            border-collapse: collapse;
-            th {
-                background-color: rgb(85, 28, 147);
-                color: #ccc;
-                font-size: 1.5vw;
-            }
-            td {
-                border-bottom: 1px solid #ccc;
-                font-size: 1.5vw;
-                a {
-                    color: black;
-                    text-decoration: none;
-                    &:hover {
-                        color: blue;
-                    }
-                }
-            }
-            
-        }
-    }
-    &-content-button {
-        margin-bottom: 2vw;
-        button {
-            font-size: 2vw;
-            background-color:rgb(85, 28, 147);
-            color: white;
-            padding: 1.5vw;
-        }
-    }
-    &-next-prev {
-        text-align: left;
-        padding-left: 2vw;
-        padding-right: 2vw;
-        a {
-            text-decoration: none;
-            color: black;
-        }
-    }
+  }
 }

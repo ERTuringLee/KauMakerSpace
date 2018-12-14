@@ -5,6 +5,7 @@ import classnames from "classnames/bind";
 
 import css from "./index.scss";
 import Title from "../../../components/Title"
+import Bar from "../../../components/Bar"
 const cx = classnames.bind(css);
 
 const moduleName = "FestivalComponent";
@@ -34,6 +35,7 @@ class FestivalComponent extends Component {
   render() {
     return (
       <div className={cx(`${moduleName}`)}>
+        <Bar />
         <Title 
           title="행사 안내"
           url1="festival"

@@ -2,21 +2,33 @@ import MainComponent from "./pages/MainComponent";
 import FestivalComponent from './pages/FestivalComponent';
 import UseComponent from './pages/UseComponent';
 import SpaceComponent from './pages/SpaceComponent';
+import SpaceRegisterComponent from './pages/SpaceComponent/SpaceRegisterComponent'
 import EquipmentComponent from './pages/EquipmentComponent'
+import EquipmentRegisterComponent from './pages/EquipmentComponent/EquipmentRegisterComponent'
 import EducationComponent from './pages/EducationComponent'
+import EducationDetailComponent from './pages/EducationComponent/EducationDetailComponent'
+import EducationRegisterComponent from './pages/EducationComponent/EducationRegisterComponent'
 import FestivalRegisterComponent from './pages/FestivalComponent/FestivalRegisterComponent';
 import FestivalDetailComponent from './pages/FestivalComponent/FestivalDetailComponent';
-import GoodsComponent from './pages/GoodsComponent';
-import GoodsDetailComponent from './pages/GoodsComponent/GoodsDetailComponent';
 import NoticeComponent from './pages/CommunicationComponent/pages/NoticeComponent';
 import NoticeDetailComponent from './pages/CommunicationComponent/pages/NoticeComponent/NoticeDetailComponent';
 import ActivityComponent from './pages/CommunicationComponent/pages/ActivityComponent'
 import ActivityDetailComponent from './pages/CommunicationComponent/pages/ActivityComponent/ActivityDetailComponent'
 import InformationComponent from './pages/CommunicationComponent/pages/InformationComponent'
 import InformationDetailComponent from './pages/CommunicationComponent/pages/InformationComponent/InformationDetailComponent'
-import EquipSpaceComponent from './pages/EquipSpaceComponent';
 import LoginComponent from './pages/LoginComponent'
 import RegisterComponent from './pages/RegisterComponent'
+import SpaceManageComponent from './pages/AdminComponent/SpaceManageComponent'
+import RegisterManageComponent from './pages/AdminComponent/RegisterManageComponent'
+import FestivalManageComponent from './pages/AdminComponent/FestivalManageComponent'
+import EquipmentManageComponent from './pages/AdminComponent/EquipmentManageComponent'
+import EducationManageComponent from './pages/AdminComponent/EducationManageComponent'
+import ActivityManageComponent from './pages/AdminComponent/CommunicationManageComponent/ActivityManageComponent'
+import InformationManageComponent from './pages/AdminComponent/CommunicationManageComponent/InformationManageComponent'
+import NoticeManageComponent from './pages/AdminComponent/CommunicationManageComponent/NoticeManageComponent'
+import CommuncationCompoonent from "./pages/CommunicationComponent";
+import AdminCompoonent from "./pages/AdminComponent";
+import CommunicationManageCompoonent from "./pages/AdminComponent/CommunicationManageComponent";
 
 const routes = [
   {
@@ -35,14 +47,34 @@ const routes = [
     component: SpaceComponent
   },
   {
+    path: "/space/register/:id",
+    exact: true,
+    component: SpaceRegisterComponent
+  },
+  {
     path: "/equipment",
     exact: true,
     component: EquipmentComponent
   },
   {
+    path: "/equipment/register/:id",
+    exact: true,
+    component: EquipmentRegisterComponent
+  },
+  {
     path: "/education",
     exact: true,
     component: EducationComponent
+  },
+  {
+    path: "/education/detail/:id",
+    exact: true,
+    component: EducationDetailComponent
+  },
+  {
+    path: "/education/register/:id",
+    exact: true,
+    component: EducationRegisterComponent
   },
   {
     path: "/festival",
@@ -60,14 +92,9 @@ const routes = [
     component: FestivalRegisterComponent
   },
   {
-    path: "/goods",
+    path: "/communication",
     exact: true,
-    component: GoodsComponent
-  },
-  {
-    path: "/goods/:id",
-    exact: true,
-    component: GoodsDetailComponent
+    component: CommuncationCompoonent
   },
   {
     path: "/communication/notice",
@@ -100,11 +127,6 @@ const routes = [
     component: ActivityDetailComponent
   },
   {
-    path: "/equip_space",
-    exact: true,
-    component: EquipSpaceComponent 
-  },
-  {
     path: "/login",
     exact: true,
     component: LoginComponent 
@@ -113,8 +135,57 @@ const routes = [
     path: "/register",
     exact: true,
     component: RegisterComponent 
+  },
+  {
+    path:'/admin',
+    exact: true,
+    component: AdminCompoonent
+  },
+  {
+    path: '/admin/space',
+    exact: true,
+    component: SpaceManageComponent
+  },
+  {
+    path: '/admin/register',
+    exact: true,
+    component: RegisterManageComponent
+  },
+  {
+    path: '/admin/festival',
+    exact: true,
+    component: FestivalManageComponent
+  },
+  {
+    path: '/admin/education',
+    exact: true,
+    component: EducationManageComponent
+  },
+  {
+    path: '/admin/equipment',
+    exact: true,
+    component: EquipmentManageComponent
+  },
+  {
+    path: '/admin/communication',
+    exact: true,
+    component: CommunicationManageCompoonent
+  },
+  {
+    path: '/admin/communication/notice',
+    exact: true,
+    component: NoticeManageComponent
+  },
+  {
+    path: '/admin/communication/information',
+    exact: true,
+    component: InformationManageComponent
+  },
+  {
+    path: '/admin/communication/activity',
+    exact: true,
+    component: ActivityManageComponent
   }
-
 ];
 
 export default routes;

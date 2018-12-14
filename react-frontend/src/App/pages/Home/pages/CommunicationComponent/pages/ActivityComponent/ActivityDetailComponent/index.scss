@@ -46,6 +46,10 @@
             background-color:rgb(85, 28, 147);
             color: white;
             padding: 1.5vw;
+            cursor: pointer;
+            &:focus {
+                outline: none;
+              }
         }
     }
 }

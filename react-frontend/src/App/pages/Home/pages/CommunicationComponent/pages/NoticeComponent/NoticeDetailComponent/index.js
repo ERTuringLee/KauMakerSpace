@@ -6,6 +6,7 @@ import classnames from "classnames/bind";
 
 import css from "./index.scss";
 import Title from "../../../../../components/Title"
+import Bar from "../../../../../components/Bar"
 const cx = classnames.bind(css);
 
 const moduleName = "InformationComponent";
@@ -49,6 +50,7 @@ class InformationComponent extends Component {
     render() {
       return (
         <div className={cx(`${moduleName}`)}>
+          <Bar />
           <Title 
             title="공지사항"
             url1="communication"

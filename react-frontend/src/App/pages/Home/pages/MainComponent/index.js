@@ -4,6 +4,7 @@ import axios from 'axios';
 import classnames from "classnames/bind";
 
 import maker_space from "src/App/pages/Home/assets/KAU_DRONE.jpg";
+import Bar from "../../components/Bar"
 
 import css from "./index.scss";
 
@@ -27,65 +28,12 @@ class MainComponent extends Component {
     };
   }
   componentDidMount () {
-      let date = new Date();
-      axios.get('/festival')
-        .then(res => {
-          const rawData = res.data.reverse();
-          const data = rawData.filter((post)=>{
-            let date1 = post.f_time1.split('.')
-            let date2 = post.f_time2.split('.')
-            let date3 = post.apply1.split('.')
-            let date4 = post.apply2.split('.')
-            let nowMonth = date.getMonth() + 1
-            return ((Number(date1[1]) === Number(nowMonth))||(Number(date2[1]) === Number(nowMonth))||(Number(date3[1]) === Number(nowMonth))||(Number(date4[1]) === Number(nowMonth)))
-          })
-          let data1 = [];
-          if (data.length >3) {
-            for(var i=0;i<3; i++) {
-              data1.push(data[i])
-            }
-          }else {
-            for(var i=0;i<data.length; i++) {
-              data1.push(data[i])
-            }
-          }
-          this.setState({data1})
-        })
-      axios.get('/goods')
-        .then(res => {
-          const data = res.data.reverse();
-          let data2 = [];
-          if (data.length >3) {
-            for(var i=0;i<3; i++) {
-              data2.push(data[i])
-            }
-          }else {
-            for(var i=0;i<data.length; i++) {
-              data2.push(data[i])
-            }
-          }
-          this.setState({data2})
-        })
-      axios.get('/activity')
-      .then(res => {
-        const data = res.data.reverse();
-        let data3 = [];
-        if (data.length >3) {
-          for(var i=0;i<3; i++) {
-            data3.push(data[i])
-          }
-        }else {
-          for(var i=0;i<data.length; i++) {
-            data3.push(data[i])
-          }
-        }
-        this.setState({data3})
-      })
       document.documentElement.scrollTop = 0;
   }
   render() {
     return (
       <div className={cx(`${moduleName}`)}>
+        <Bar />
         <div className={cx(`${moduleName}-box`)}>
           <div className={cx(`${moduleName}-introduce`)}
           style={{

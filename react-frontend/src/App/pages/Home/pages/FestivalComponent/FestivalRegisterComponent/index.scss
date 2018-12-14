@@ -17,17 +17,6 @@ $content-width: 80%;
     &-human {
       margin-bottom: 2vw;
     }
-    &-agree {
-      background-color: rgb(233,233,233);
-      padding-top: 2vw;
-      padding-bottom: 2vw;
-    }
-    &-agree-title {
-      width: $content-width;
-      margin: 2vw auto;
-      font-size: 2vw;
-      font-weight: 500;
-    }
     &-human-title {
       color: $title-color;
       width: 95%;

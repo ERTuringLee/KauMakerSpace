@@ -5,6 +5,7 @@ import axios from 'axios';
 import classnames from "classnames/bind";
 import css from "./index.scss";
 import Title from "../../../../components/Title"
+import Bar from "../../../../components/Bar"
 
 import makers_active from "src/App/pages/Home/assets/makers_active.jpeg"
 import makers_active2 from "src/App/pages/Home/assets/makers_active2.jpeg"
@@ -49,6 +50,7 @@ class ActivityComponent extends Component {
   render() {
     return (
       <div className={cx(`${moduleName}`)}>
+        <Bar />
         <Title 
             title="활동사진"
             url1="communication"

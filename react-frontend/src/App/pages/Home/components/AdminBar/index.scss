@@ -1,0 +1,47 @@
+.Bar {
+    background-color: rgba(77, 50, 142, 0.95);
+    height: 8vw;
+    position:fixed;
+    width: 100%;
+    z-index: 999;
+    top: 8vw;
+    text-align: center;
+    button {
+      text-decoration: none;
+      border: none;
+      color: white;
+      font-size: 2.5vw;
+      width: 15vw;
+      height: 8vw;
+      cursor: pointer;
+      &:hover {
+        background-color: rgba(43, 28, 82, 0.95);
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+    &-focus {
+      background-color: rgba(43, 28, 82, 0.95);
+    }
+    &-not-focus {
+      background-color: transparent;
+      &-detail {
+        background-color: rgba(77, 50, 142, 0.95);
+      }
+    }
+    &-detail-menu {
+      width: 100%;
+      position: absolute;
+      left: 0px;
+      &-item {
+        width: 15vw;
+        display: inline-block;
+        button {
+          cursor:pointer;
+          // background-color: rgba(77, 50, 142, 0.95);
+        }
+  
+      }
+    } 
+  }

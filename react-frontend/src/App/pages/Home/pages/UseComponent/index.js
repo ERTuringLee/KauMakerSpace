@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import classnames from "classnames/bind";
 
 import css from "./index.scss";
+import Bar from "../../components/Bar"
 import Title from "../../components/Title"
 import Content from "./ContentComponent"
 import Instrument from "./InstrumentComponent"
@@ -27,6 +28,7 @@ class UseComponent extends Component {
   render() {
     return (
       <div className={cx(`${moduleName}`)}>
+        <Bar/>
         <Title 
           title="이용 안내"
           url1="use"

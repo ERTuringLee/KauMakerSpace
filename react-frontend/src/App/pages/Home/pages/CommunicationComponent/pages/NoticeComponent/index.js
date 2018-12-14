@@ -6,6 +6,7 @@ import classnames from "classnames/bind";
 
 import css from "./index.scss";
 import Title from "../../../../components/Title"
+import Bar from "../../../../components/Bar"
 const cx = classnames.bind(css);
 
 const moduleName = "NoticeComponent";
@@ -28,12 +29,11 @@ class NoticeComponent extends Component {
         const data = res.data.reverse();
         this.setState({data});
         let lastPage = Math.ceil(data.length / 15);
-        console.log(lastPage);
         let page = "";
         for (var i=1; i<=lastPage; i++) {
           if (i!==lastPage){
             page = page + i +",";
-          }else {
+          } else {
             page = page + i;
           }
         }
@@ -45,6 +45,7 @@ class NoticeComponent extends Component {
   render() {
     return (
       <div className={cx(`${moduleName}`)}>
+        <Bar/>
         <Title 
           title="공지사항"
           url1="communication"

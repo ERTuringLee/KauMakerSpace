@@ -1,0 +1,171 @@
+$title-color:rgb(0,144,192); 
+$content-width: 80%;
+.SpaceRegisterComponent {
+  margin-top: 16vw;
+  text-align: left;
+  &-agree {
+    background-color: rgb(233,233,233);
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+  }
+  &-human {
+    margin-bottom: 2vw;
+    &-title {
+      color: $title-color;
+      width: 90%;
+      font-size: 2.5vw;
+      margin: 0 auto;
+    }
+    &-content {
+      width: $content-width;
+      margin: 0 auto;
+    }
+  }
+  &-detail {
+    font-size: 1.5vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    input {
+      font-size: 1.5vw;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  &-agree-title {
+    width: $content-width;
+    margin: 2vw auto;
+    font-size: 2vw;
+    font-weight: 500;
+  }
+  &-content {
+    margin-bottom: 2vw;
+    &-container {
+      border-top: 3px solid #ccc;
+      width: 90%;
+      margin: 0 auto;
+      position: relative;
+    }
+    &-card {
+      border-bottom: 3px solid #ccc;
+      padding: 1vw;
+      text-align: left;
+      position: relative;
+    }
+    &-detail {
+      width: $content-width;
+      margin: 2vw auto;
+      font-size: 1.3vw;
+    }
+  }
+  &-button {
+    background-color: rgb(233,233,233);
+    text-align: center;
+    &-register {
+        width: 10vw;
+        font-size: 1.5vw;
+        border: none;
+        padding: 1vw;
+        background-color: #4d328e;
+        color: white;
+        border-radius: 1vw;
+        margin-right: 1vw;
+        cursor: pointer;
+        &:focus {
+            outline: none;
+        }
+    }
+    &-return {
+        width: 10vw;
+        font-size: 1.5vw;
+        border: none;
+        padding: 1vw;
+        background-color: blue;
+        color: white;
+        border-radius: 1vw;
+        cursor: pointer;
+        &:focus {
+            outline: none;
+        }
+    }
+    padding-bottom: 2vw;
+  }
+  &-card {
+    &-image {
+      width: 20vw;
+      height: 30vw;
+      position: absolute;
+      top: 1vw;
+      left: 1vw;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      img {
+        width: 20vw;
+      }
+    }
+    &-description {
+      width: 70vw;
+      position: relative;
+      left: 20vw;
+      &-title {
+        width: 25vw;
+        position: absolute;
+        height: 30vw;
+        left: 0px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        &-detail {
+          h1 {
+            margin: 0px;
+            font-size: 4vw;
+            text-align: center;
+          }
+        }
+      }
+      &-content {
+        width: 40vw;
+        position: relative;
+        left: 26.5vw;
+        height: 30vw;
+        text-align: left;
+        border-top: 1px solid #ccc;
+        &-detail {
+          border-bottom: 1px solid #ccc;
+          padding-top: 0.5vw;
+          padding-bottom: 0.5vw;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          &-title {
+            font-size: 2.15vw;
+            display: inline-block;
+            width: 15vw;
+            
+          }
+          &-content {
+            font-size: 2.15vw; 
+            display: inline-block;
+            width: 25vw;
+          }
+        }
+      }
+      &-button {
+        text-align: center;
+        &-detail {
+          color: white;
+          border: none;
+          border-radius: 1vw;
+          background-color: rgb(77,50,142);
+          font-size: 3vw;
+          padding: 1vw 3vw;
+          cursor: pointer;
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+}

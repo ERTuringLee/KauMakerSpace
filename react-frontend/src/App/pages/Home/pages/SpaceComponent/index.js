@@ -6,6 +6,7 @@ import classnames from "classnames/bind";
 
 import css from "./index.scss";
 import Title from "../../components/Title"
+import Bar from "../../components/Bar"
 // import Content from "./ContentComponent"
 
 const cx = classnames.bind(css);
@@ -42,6 +43,7 @@ class SpaceComponent extends Component {
   render() {
     return (
       <div className={cx(`${moduleName}`)}>
+        <Bar />
         <Title 
           title="공간 안내"
           url1="space"
@@ -91,10 +93,9 @@ class SpaceComponent extends Component {
                     </div>
                   </div>
                 </div>
-                
               </div>
               <div className={cx(`${moduleName}-card-description-button`)}>
-                <Link to={`/equipment/register/${post.id}`}><button className={cx(`${moduleName}-card-description-button-detail`)}>신청하기</button></Link>
+                <Link to={`/space/register/${post.id}`}><button className={cx(`${moduleName}-card-description-button-detail`)}>신청하기</button></Link>
               </div>
             </div>)}
           </div>
